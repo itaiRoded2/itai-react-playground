@@ -23,7 +23,7 @@ const App3: React.FC = () => {
 
   return (
     <div className="App">
-      <h2>TODO App test CI CD 3</h2>
+      <h2>TODO App test CI CD works deploying on push</h2>
 
       <input type="text" value={input} onChange={handleInputChange} />
 

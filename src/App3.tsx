@@ -1,22 +1,12 @@
-import React, { ChangeEvent, useEffect } from "react";
+import React, { ChangeEvent } from "react";
 import "./App.css";
 import { useTodoStore } from "./store/useTodoStore"; // ✅ adjust path as needed
 
-const App3: React.FC = () => {
-  const {
-    todos,
-    input,
-    setInput,
-    addTodo,
-    deleteTodo,
-    toggleTodo,
-    loadFromLocalStorage,
-  } = useTodoStore();
+import styles from "./App3.styles";
 
-  useEffect(() => {
-    loadFromLocalStorage();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+const App3: React.FC = () => {
+  const { todos, input, setInput, addTodo, deleteTodo, toggleTodo } =
+    useTodoStore();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -26,7 +16,8 @@ const App3: React.FC = () => {
     <div style={styles.appContainer}>
       <h2 style={styles.heading}>
         Itai TODO App test CI CD works deploying on push Data is saved on
-        refresh in store!
+        refresh in store with Zustand’s persist middleware! Cleaner state mgmt,
+        no useEffect and explicit local storage calls
       </h2>
 
       <div style={styles.workflowLinkContainer}>
@@ -89,95 +80,6 @@ const App3: React.FC = () => {
       </ul>
     </div>
   );
-};
-
-const styles: Record<string, React.CSSProperties> = {
-  appContainer: {
-    maxWidth: 600,
-    margin: "40px auto",
-    padding: "32px",
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-    backgroundColor: "#ffffff",
-    borderRadius: "16px",
-    boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
-  },
-  heading: {
-    textAlign: "center",
-    color: "#1a1a1a",
-    marginBottom: "24px",
-    fontSize: "28px",
-    fontWeight: "600",
-  },
-  workflowLinkContainer: {
-    textAlign: "center",
-    marginBottom: "32px",
-    fontSize: "14px",
-    color: "#666",
-    display: "flex",
-    justifyContent: "center",
-    gap: "16px",
-  },
-  link: {
-    color: "#2563eb",
-    textDecoration: "none",
-    fontWeight: "500",
-  },
-  inputRow: {
-    display: "flex",
-    gap: "12px",
-    marginBottom: "32px",
-  },
-  input: {
-    flexGrow: 1,
-    padding: "12px 16px",
-    fontSize: "16px",
-    border: "2px solid #e5e7eb",
-    borderRadius: "8px",
-  },
-  addBtn: {
-    padding: "12px 24px",
-    fontSize: "16px",
-    cursor: "pointer",
-    backgroundColor: "#2563eb",
-    color: "white",
-    border: "none",
-    borderRadius: "8px",
-    fontWeight: "500",
-  },
-  todoList: {
-    listStyle: "none",
-    paddingLeft: 0,
-    maxHeight: "400px",
-    overflowY: "auto",
-    borderRadius: "8px",
-    border: "1px solid #e5e7eb",
-  },
-  todoItem: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "16px",
-    borderBottom: "1px solid #e5e7eb",
-    cursor: "pointer",
-    fontSize: "16px",
-    color: "#1a1a1a",
-    userSelect: "none",
-  },
-  todoCompleted: {
-    textDecoration: "line-through",
-    color: "#9ca3af",
-    backgroundColor: "#f9fafb",
-  },
-  deleteBtn: {
-    cursor: "pointer",
-    border: "none",
-    background: "transparent",
-    fontSize: "18px",
-    lineHeight: 1,
-    color: "#ef4444",
-    padding: "4px",
-    borderRadius: "4px",
-  },
 };
 
 export default App3;

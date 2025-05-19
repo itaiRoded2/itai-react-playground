@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/itai-build-todo-app/static/css/main.5ca80a36.css",
-    "main.js": "/itai-build-todo-app/static/js/main.4be6bef1.js",
+    "main.css": "/itai-build-todo-app/static/css/main.9213524b.css",
+    "main.js": "/itai-build-todo-app/static/js/main.31a071f5.js",
     "static/js/453.2f656bad.chunk.js": "/itai-build-todo-app/static/js/453.2f656bad.chunk.js",
     "index.html": "/itai-build-todo-app/index.html",
-    "main.5ca80a36.css.map": "/itai-build-todo-app/static/css/main.5ca80a36.css.map",
-    "main.4be6bef1.js.map": "/itai-build-todo-app/static/js/main.4be6bef1.js.map",
+    "main.9213524b.css.map": "/itai-build-todo-app/static/css/main.9213524b.css.map",
+    "main.31a071f5.js.map": "/itai-build-todo-app/static/js/main.31a071f5.js.map",
     "453.2f656bad.chunk.js.map": "/itai-build-todo-app/static/js/453.2f656bad.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ca80a36.css",
-    "static/js/main.4be6bef1.js"
+    "static/css/main.9213524b.css",
+    "static/js/main.31a071f5.js"
   ]
 }

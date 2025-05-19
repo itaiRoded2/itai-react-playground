@@ -18,18 +18,22 @@ const styles: Record<string, CSSProperties> = {
     fontWeight: "600",
   },
   workflowLinkContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: "12px",
     textAlign: "center",
     marginBottom: "32px",
     fontSize: "14px",
     color: "#666",
-    display: "flex",
-    justifyContent: "center",
-    gap: "16px",
   },
+
   link: {
     color: "#2563eb",
     textDecoration: "none",
-    fontWeight: "500",
+    fontWeight: 500,
+    transition: "color 0.2s ease",
   },
   inputRow: {
     display: "flex",

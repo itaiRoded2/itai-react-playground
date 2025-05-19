@@ -37,7 +37,7 @@ const App3: React.FC = () => {
           rel="noopener noreferrer"
           style={styles.link}
         >
-          Online
+          See
         </a>
       </div>
 

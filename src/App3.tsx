@@ -38,6 +38,15 @@ const App3: React.FC = () => {
         >
           GitHub Actions
         </a>
+        Online
+        <a
+          href="https://itairoded2.github.io/itai-build-todo-app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={styles.link}
+        >
+          Online
+        </a>
       </div>
 
       <div style={styles.inputRow}>
@@ -83,81 +92,90 @@ const App3: React.FC = () => {
 
 const styles: Record<string, React.CSSProperties> = {
   appContainer: {
-    maxWidth: 480,
+    maxWidth: 600,
     margin: "40px auto",
-    padding: 20,
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-    backgroundColor: "#f9f9f9",
-    borderRadius: 8,
-    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+    padding: "32px",
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+    backgroundColor: "#ffffff",
+    borderRadius: "16px",
+    boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
   },
   heading: {
     textAlign: "center",
-    color: "#333",
-    marginBottom: 16,
+    color: "#1a1a1a",
+    marginBottom: "24px",
+    fontSize: "28px",
+    fontWeight: "600",
   },
   workflowLinkContainer: {
     textAlign: "center",
-    marginBottom: 24,
-    fontSize: 14,
+    marginBottom: "32px",
+    fontSize: "14px",
     color: "#666",
+    display: "flex",
+    justifyContent: "center",
+    gap: "16px",
   },
   link: {
-    color: "#007acc",
+    color: "#2563eb",
     textDecoration: "none",
+    fontWeight: "500",
   },
   inputRow: {
     display: "flex",
-    justifyContent: "center",
-    marginBottom: 24,
+    gap: "12px",
+    marginBottom: "32px",
   },
   input: {
     flexGrow: 1,
-    padding: "8px 12px",
-    fontSize: 16,
-    border: "1px solid #ccc",
-    borderRadius: 4,
+    padding: "12px 16px",
+    fontSize: "16px",
+    border: "2px solid #e5e7eb",
+    borderRadius: "8px",
   },
   addBtn: {
-    padding: "8px 16px",
-    marginLeft: 12,
-    fontSize: 16,
+    padding: "12px 24px",
+    fontSize: "16px",
     cursor: "pointer",
-    backgroundColor: "#007acc",
+    backgroundColor: "#2563eb",
     color: "white",
     border: "none",
-    borderRadius: 4,
-    transition: "background-color 0.2s ease",
+    borderRadius: "8px",
+    fontWeight: "500",
   },
   todoList: {
     listStyle: "none",
     paddingLeft: 0,
-    maxHeight: 300,
+    maxHeight: "400px",
     overflowY: "auto",
+    borderRadius: "8px",
+    border: "1px solid #e5e7eb",
   },
   todoItem: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "10px 12px",
-    borderBottom: "1px solid #ddd",
+    padding: "16px",
+    borderBottom: "1px solid #e5e7eb",
     cursor: "pointer",
-    fontSize: 16,
-    color: "#222",
+    fontSize: "16px",
+    color: "#1a1a1a",
     userSelect: "none",
   },
   todoCompleted: {
     textDecoration: "line-through",
-    color: "#888",
+    color: "#9ca3af",
+    backgroundColor: "#f9fafb",
   },
   deleteBtn: {
     cursor: "pointer",
     border: "none",
     background: "transparent",
-    fontSize: 18,
+    fontSize: "18px",
     lineHeight: 1,
-    color: "#c00",
-    padding: 0,
+    color: "#ef4444",
+    padding: "4px",
+    borderRadius: "4px",
   },
 };
 

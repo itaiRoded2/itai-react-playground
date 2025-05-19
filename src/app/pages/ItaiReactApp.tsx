@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
-import "./App.css";
-import { useTodoStore } from "./store/useTodoStore"; // ✅ adjust path as needed
+import "./ItaiReactApp.css";
+import { useTodoStore } from "../../store/useTodoStore"; // ✅ adjust path as needed
 
 import styles from "./ItaiReactApp.styles";
 
@@ -20,11 +20,11 @@ const ItaiReactApp: React.FC = () => {
         no useEffect and explicit local storage calls
       </h2>
 
-      <div className="min-h-screen flex items-center justify-center bg-blue-100">
+      {/* <div className="min-h-screen flex items-center justify-center bg-blue-100">
         <h1 className="text-4xl font-bold text-blue-700">
           Tailwind is working! 🚀
         </h1>
-      </div>
+      </div> */}
 
       <div style={styles.workflowLinkContainer}>
         <span>See workflow:</span>

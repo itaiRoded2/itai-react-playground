@@ -1,13 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import ItaiReactApp from "./ItaiReactApp";
+// import "./index.css";
+import ItaiReactApp from "./app/pages/ItaiReactApp";
 import reportWebVitals from "./reportWebVitals";
+import App from "App";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ItaiReactApp />
+    <BrowserRouter>
+      {/* <ItaiReactApp /> */}
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

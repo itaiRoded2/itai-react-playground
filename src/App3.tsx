@@ -15,6 +15,7 @@ const App3: React.FC = () => {
 
   useEffect(() => {
     loadFromLocalStorage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {

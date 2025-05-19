@@ -2,9 +2,9 @@ import React, { ChangeEvent } from "react";
 import "./App.css";
 import { useTodoStore } from "./store/useTodoStore"; // ✅ adjust path as needed
 
-import styles from "./App3.styles";
+import styles from "./ItaiReactApp.styles";
 
-const App3: React.FC = () => {
+const ItaiReactApp: React.FC = () => {
   const { todos, input, setInput, addTodo, deleteTodo, toggleTodo } =
     useTodoStore();
 
@@ -88,4 +88,4 @@ const App3: React.FC = () => {
   );
 };
 
-export default App3;
+export default ItaiReactApp;

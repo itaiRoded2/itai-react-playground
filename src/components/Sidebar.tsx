@@ -1,34 +1,56 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-
-const links = [
-  { path: "/", name: "Todo App" },
-  { path: "/app2", name: "Future App 2" },
-  { path: "/app3", name: "Future App 3" },
-];
+import { NavLink, useLocation } from "react-router-dom";
 
 export default function Sidebar() {
   const location = useLocation();
 
+  // Optional: log current path or use it for other UI logic
+  console.log("Current path:", location.pathname);
+
   return (
-    <div className="w-64 bg-white shadow-lg p-4">
-      <h1 className="text-2xl font-bold text-blue-600 mb-6">My Projects</h1>
-      <ul className="space-y-2">
-        {links.map((link) => (
-          <li key={link.path}>
-            <Link
-              to={link.path}
-              className={`block px-4 py-2 rounded hover:bg-blue-100 ${
-                location.pathname === link.path
-                  ? "bg-blue-200 font-semibold"
-                  : ""
-              }`}
+    <aside className="w-64 bg-blue-600 text-white p-6 min-h-screen">
+      <h2 className="text-xl font-semibold mb-6">My App</h2>
+      <nav>
+        <ul className="space-y-3">
+          <li>
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                isActive
+                  ? "block px-4 py-2 rounded bg-blue-800 font-bold"
+                  : "block px-4 py-2 rounded hover:bg-blue-700"
+              }
             >
-              {link.name}
-            </Link>
+              Home
+            </NavLink>
           </li>
-        ))}
-      </ul>
-    </div>
+          <li>
+            <NavLink
+              to="/todo"
+              className={({ isActive }) =>
+                isActive
+                  ? "block px-4 py-2 rounded bg-blue-800 font-bold"
+                  : "block px-4 py-2 rounded hover:bg-blue-700"
+              }
+            >
+              Todo App
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/future"
+              className={({ isActive }) =>
+                isActive
+                  ? "block px-4 py-2 rounded bg-blue-800 font-bold"
+                  : "block px-4 py-2 rounded hover:bg-blue-700"
+              }
+            >
+              Future App
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </aside>
   );
 }

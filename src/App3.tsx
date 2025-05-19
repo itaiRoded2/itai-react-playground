@@ -25,8 +25,8 @@ const App3: React.FC = () => {
   return (
     <div style={styles.appContainer}>
       <h2 style={styles.heading}>
-        TODO App test CI CD works deploying on push Data is saved on refresh in
-        store!
+        Itai TODO App test CI CD works deploying on push Data is saved on
+        refresh in store!
       </h2>
 
       <div style={styles.workflowLinkContainer}>

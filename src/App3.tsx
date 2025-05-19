@@ -1,50 +1,24 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { ChangeEvent, useEffect } from "react";
 import "./App.css";
-
-interface Todo {
-  id: number;
-  text: string;
-  completed: boolean;
-}
+import { useTodoStore } from "./store/useTodoStore"; // ✅ adjust path as needed
 
 const App3: React.FC = () => {
-  const [todos, setTodos] = useState<Todo[]>([
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Learn Redux", completed: false },
-    { id: 3, text: "Learn GraphQL", completed: false },
-  ]);
+  const {
+    todos,
+    input,
+    setInput,
+    addTodo,
+    deleteTodo,
+    toggleTodo,
+    loadFromLocalStorage,
+  } = useTodoStore();
 
-  const [input, setInput] = useState<string>("");
-
-  const addTask = () => {
-    if (input.trim() === "") return;
-
-    const newTodo: Todo = {
-      id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1,
-      text: input,
-      completed: false,
-    };
-
-    setTodos([...todos, newTodo]);
-    setInput("");
-  };
-
-  const deleteTask = (index: number) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
-  };
+  useEffect(() => {
+    loadFromLocalStorage();
+  }, []);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
-  };
-
-  const toggleTask = (id: number) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
   };
 
   return (
@@ -53,7 +27,7 @@ const App3: React.FC = () => {
 
       <input type="text" value={input} onChange={handleInputChange} />
 
-      <button onClick={addTask} style={styles.addBtn}>
+      <button onClick={addTodo} style={styles.addBtn}>
         Add
       </button>
 
@@ -65,10 +39,10 @@ const App3: React.FC = () => {
         }}
       >
         <ul style={{ paddingLeft: 0, listStyle: "none" }}>
-          {todos.map((todo, index) => (
+          {todos.map((todo) => (
             <li
               key={todo.id}
-              onClick={() => toggleTask(todo.id)}
+              onClick={() => toggleTodo(todo.id)}
               style={{
                 cursor: "pointer",
                 textDecoration: todo.completed ? "line-through" : "none",
@@ -77,7 +51,10 @@ const App3: React.FC = () => {
             >
               <span>{todo.text}</span>
               <button
-                onClick={() => deleteTask(index)}
+                onClick={(e) => {
+                  e.stopPropagation(); // prevent toggle on delete click
+                  deleteTodo(todo.id);
+                }}
                 style={{
                   cursor: "pointer",
                   border: "none",
@@ -85,6 +62,7 @@ const App3: React.FC = () => {
                   padding: 0,
                   fontSize: "1rem",
                   lineHeight: 1,
+                  marginLeft: "8px",
                 }}
               >
                 ❌
@@ -98,7 +76,7 @@ const App3: React.FC = () => {
 };
 
 const styles = {
-  addBtn: { padding: "8px 12px" },
+  addBtn: { padding: "8px 12px", marginLeft: "8px" },
 };
 
 export default App3;

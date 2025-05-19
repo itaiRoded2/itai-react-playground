@@ -21,7 +21,7 @@ const App3: React.FC = () => {
       </h2>
 
       <div style={styles.workflowLinkContainer}>
-        See workflow:{" "}
+        <span>See workflow:</span>
         <a
           href="https://github.com/itaiRoded2/itai-build-todo-app/actions"
           target="_blank"
@@ -30,14 +30,14 @@ const App3: React.FC = () => {
         >
           GitHub Actions
         </a>
-        Online
+        <span>|</span>
         <a
           href="https://itairoded2.github.io/itai-build-todo-app/"
           target="_blank"
           rel="noopener noreferrer"
           style={styles.link}
         >
-          See
+          Online
         </a>
       </div>
 

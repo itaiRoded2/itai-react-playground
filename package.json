@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:prod": "PUBLIC_URL=/itai-build-todo-app/ react-scripts build",
+    "build:prod": "set PUBLIC_URL=/itai-build-todo-app/ && react-scripts build",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx} --fix",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

@@ -46,6 +46,20 @@
         }
       })(window.location);
     </script>
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect) {
+          // Remove the base path from the stored path if it exists
+          var basePath = "/itai-build-todo-app";
+          var path = redirect.startsWith(basePath)
+            ? redirect
+            : basePath + redirect;
+          history.replaceState(null, null, path);
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

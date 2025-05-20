@@ -1,14 +1,14 @@
 import App from "App";
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 function AppWrapper() {
+  const basename =
+    process.env.NODE_ENV === "production" ? "/itai-build-todo-app" : "/";
+
   return (
-    // <BrowserRouter basename="/itai-build-todo-app">
-    <BrowserRouter>
-      <Routes>
-        <Route path="/*" element={<App />} />
-      </Routes>
+    <BrowserRouter basename={basename}>
+      <App />
     </BrowserRouter>
   );
 }

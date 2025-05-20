@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 function AppWrapper() {
   const basename =
-    process.env.NODE_ENV === "production" ? "/itai-build-todo-app" : "/";
+    process.env.NODE_ENV === "production" ? "/itai-build-todo-app/" : "/";
 
   return (
     <BrowserRouter basename={basename}>

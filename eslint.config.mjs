@@ -16,7 +16,7 @@ export default [
     },
     languageOptions: {
       parser: tsParser,
-      ecmaVersion: 2021,
+      ecmaVersion: "latest",
       sourceType: "module",
       globals: {
         ...globals.browser,
@@ -29,7 +29,11 @@ export default [
       },
     },
     rules: {
-      // Add custom rules here
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "react/prop-types": "off",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "no-unused-vars": "off",
     },
   },
 ];

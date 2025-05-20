@@ -10,8 +10,8 @@ export default function MainContent() {
       transition={{ duration: 0.5 }}
       className="p-6"
     >
-      <h1 className="text-2xl font-bold mb-4">Main Content</h1>
-      <p>This content fades in smoothly when mounted.</p>
+      <h1 className="text-2xl font-bold mb-4"> Main Content </h1>
+      <p> This content fades in smoothly when mounted.</p>
     </motion.div>
   );
 }

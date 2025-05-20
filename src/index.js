@@ -3,18 +3,18 @@ import ReactDOM from "react-dom/client";
 // import "./index.css";
 // import ItaiReactApp from "./app/pages/ItaiReactApp";
 import reportWebVitals from "./reportWebVitals";
-import App from "App";
+//import App from "App";
 import { BrowserRouter } from "react-router-dom";
+import AppWrapper from "AppWrapper";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const basename = process.env.NODE_ENV === 'production' ? '/itai-build-todo-app/' : '/';
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename={basename}>
-      {/* <ItaiReactApp /> */}
-      <App />
-    </BrowserRouter>
+    {/* <ItaiReactApp /> */}
+    <AppWrapper />
+    {/* <App /> */}
   </React.StrictMode>
 );
 

@@ -13,7 +13,7 @@ export default function App() {
         <Suspense fallback={<div className="p-6">Loading content...</div>}>
           <Routes>
             <Route path="/" element={<MainContent />} />
-            <Route path="/todo" element={<ItaiReactApp />} />
+            <Route path="/todos" element={<ItaiReactApp />} />
           </Routes>
         </Suspense>
       </main>

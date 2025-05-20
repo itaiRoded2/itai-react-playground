@@ -1,16 +1,13 @@
 import App from "App";
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function AppWrapper() {
   return (
+    // <BrowserRouter basename="/itai-build-todo-app">
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={<Navigate to="/itai-build-todo-app/" replace />}
-        />
-        <Route path="/itai-build-todo-app/*" element={<App />} />
+        <Route path="/*" element={<App />} />
       </Routes>
     </BrowserRouter>
   );

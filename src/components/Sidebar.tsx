@@ -1,11 +1,9 @@
+// Sidebar.tsx
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
 export default function Sidebar() {
   const location = useLocation();
-
-  // Optional: log current path or use it for other UI logic
-  console.log("Current path:", location.pathname);
 
   return (
     <aside className="w-64 bg-blue-600 text-white p-6 min-h-screen">
@@ -27,7 +25,7 @@ export default function Sidebar() {
           </li>
           <li>
             <NavLink
-              to="/todo"
+              to="/todos"
               className={({ isActive }) =>
                 isActive
                   ? "block px-4 py-2 rounded bg-blue-800 font-bold"

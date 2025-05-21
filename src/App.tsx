@@ -5,7 +5,7 @@ import Sidebar from "./components/Sidebar";
 import MainContent from "./app/pages/MainContent";
 import ItaiReactApp from "./app/pages/ItaiReactApp";
 
-export default function App() {
+const App: React.FC = () => {
   return (
     <div className="flex min-h-screen bg-gray-100">
       <Sidebar />
@@ -19,4 +19,6 @@ export default function App() {
       </main>
     </div>
   );
-}
+};
+
+export default App;

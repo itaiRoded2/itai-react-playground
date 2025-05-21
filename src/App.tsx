@@ -1,9 +1,8 @@
 import React, { Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
 
 import Sidebar from "./components/Sidebar";
-import MainContent from "./app/pages/MainContent";
-import ItaiReactApp from "./app/pages/ItaiReactApp";
+
+import AppRoutes from "router/routes";
 
 const App: React.FC = () => {
   return (
@@ -11,10 +10,7 @@ const App: React.FC = () => {
       <Sidebar />
       <main className="flex-1 p-6">
         <Suspense fallback={<div className="p-6">Loading content...</div>}>
-          <Routes>
-            <Route path="/" element={<MainContent />} />
-            <Route path="/todos" element={<ItaiReactApp />} />
-          </Routes>
+          <AppRoutes />
         </Suspense>
       </main>
     </div>

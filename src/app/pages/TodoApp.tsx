@@ -21,7 +21,7 @@ const TodoApp: React.FC = () => {
       <div style={styles.workflowLinkContainer}>
         <span>See workflow:</span>
         <a
-          href="https://github.com/itaiRoded2/itai-build-todo-app/actions"
+          href="https://github.com/itaiRoded2/itai-react-playground/actions"
           target="_blank"
           rel="noopener noreferrer"
           style={styles.link}
@@ -30,7 +30,7 @@ const TodoApp: React.FC = () => {
         </a>
         <span>|</span>
         <a
-          href="https://itairoded2.github.io/itai-build-todo-app/"
+          href="https://itairoded2.github.io/itai-react-playground/"
           target="_blank"
           rel="noopener noreferrer"
           style={styles.link}

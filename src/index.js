@@ -8,7 +8,8 @@ import { BrowserRouter } from "react-router-dom";
 import AppWrapper from "AppWrapper";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const basename = process.env.NODE_ENV === 'production' ? '/itai-build-todo-app/' : '/';
+const basename =
+  process.env.NODE_ENV === "production" ? "/itai-react-playground/" : "/";
 
 root.render(
   <React.StrictMode>

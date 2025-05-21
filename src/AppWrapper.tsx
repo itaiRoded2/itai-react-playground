@@ -4,7 +4,7 @@ import App from "./App";
 
 const AppWrapper: React.FC = () => {
   const basename =
-    process.env.NODE_ENV === "production" ? "/itai-build-todo-app" : "/";
+    process.env.NODE_ENV === "production" ? "/itai-react-playground" : "/";
 
   return (
     <BrowserRouter basename={basename}>

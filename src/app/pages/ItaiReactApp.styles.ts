@@ -1,11 +1,26 @@
 import { CSSProperties } from "react";
 
-const styles: Record<string, CSSProperties> = {
+interface Styles extends Record<string, CSSProperties> {
+  appContainer: CSSProperties;
+  heading: CSSProperties;
+  workflowLinkContainer: CSSProperties;
+  link: CSSProperties;
+  inputRow: CSSProperties;
+  input: CSSProperties;
+  addBtn: CSSProperties;
+  todoList: CSSProperties;
+  todoItem: CSSProperties;
+  todoCompleted: CSSProperties;
+  deleteBtn: CSSProperties;
+}
+
+const styles: Styles = {
   appContainer: {
     maxWidth: 600,
     margin: "40px auto",
     padding: "32px",
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+    fontFamily:
+      "&apos;Inter&apos;, -apple-system, BlinkMacSystemFont, sans-serif",
     backgroundColor: "#ffffff",
     borderRadius: "16px",
     boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
@@ -28,7 +43,6 @@ const styles: Record<string, CSSProperties> = {
     fontSize: "14px",
     color: "#666",
   },
-
   link: {
     color: "#2563eb",
     textDecoration: "none",

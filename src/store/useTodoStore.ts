@@ -17,31 +17,40 @@ interface TodoState {
   toggleTodo: (id: number) => void;
 }
 
+const STORAGE_KEY = "todo-storage";
+
 export const useTodoStore = create<TodoState>()(
   persist(
     (set, get) => ({
       todos: [],
       input: "",
-      setInput: (text) => set({ input: text }),
+      setInput: (text: string) => set({ input: text }),
       addTodo: () => {
         const { input, todos } = get();
         if (!input.trim()) return;
+
+        const newTodo: Todo = {
+          id: Date.now(),
+          text: input.trim(),
+          completed: false,
+        };
+
         set({
-          todos: [...todos, { id: Date.now(), text: input, completed: false }],
+          todos: [...todos, newTodo],
           input: "",
         });
       },
-      deleteTodo: (id) =>
-        set({ todos: get().todos.filter((t) => t.id !== id) }),
-      toggleTodo: (id) =>
+      deleteTodo: (id: number) =>
+        set({ todos: get().todos.filter((todo) => todo.id !== id) }),
+      toggleTodo: (id: number) =>
         set({
-          todos: get().todos.map((t) =>
-            t.id === id ? { ...t, completed: !t.completed } : t
+          todos: get().todos.map((todo) =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
           ),
         }),
     }),
     {
-      name: "todo-storage",
+      name: STORAGE_KEY,
     }
   )
 );

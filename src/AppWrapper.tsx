@@ -1,8 +1,8 @@
-import App from "App";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 
-function AppWrapper() {
+const AppWrapper: React.FC = () => {
   const basename =
     process.env.NODE_ENV === "production" ? "/itai-build-todo-app" : "/";
 
@@ -11,6 +11,6 @@ function AppWrapper() {
       <App />
     </BrowserRouter>
   );
-}
+};
 
 export default AppWrapper;

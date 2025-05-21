@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 import "./ItaiReactApp.css";
-import { useTodoStore } from "../../store/useTodoStore"; // ✅ adjust path as needed
+import { useTodoStore, Todo } from "../../store/useTodoStore"; // ✅ adjust path as needed
 
 import styles from "./ItaiReactApp.styles";
 
@@ -8,16 +8,27 @@ const ItaiReactApp: React.FC = () => {
   const { todos, input, setInput, addTodo, deleteTodo, toggleTodo } =
     useTodoStore();
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setInput(e.target.value);
+  };
+
+  const handleDeleteTodo = (e: React.MouseEvent, id: number): void => {
+    e.stopPropagation();
+    deleteTodo(id);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent): void => {
+    if (e.key === "Enter") {
+      addTodo();
+    }
   };
 
   return (
     <div style={styles.appContainer}>
       <h2 style={styles.heading}>
         Itai TODO App test CI CD works deploying on push Data is saved on
-        refresh in store with Zustand’s persist middleware! Cleaner state mgmt,
-        no useEffect and explicit local storage calls
+        refresh in store with Zustands persist middleware Cleaner state mgmt no
+        useEffect and explicit local storage calls
       </h2>
 
       {/* <div className="min-h-screen flex items-center justify-center bg-blue-100">
@@ -27,7 +38,7 @@ const ItaiReactApp: React.FC = () => {
       </div> */}
 
       <div style={styles.workflowLinkContainer}>
-        <span>See workflow:</span>
+        <span>Links: </span>
         <a
           href="https://github.com/itaiRoded2/itai-build-todo-app/actions"
           target="_blank"
@@ -36,14 +47,14 @@ const ItaiReactApp: React.FC = () => {
         >
           GitHub Actions
         </a>
-        <span>|</span>
+        <span> | </span>
         <a
           href="https://itairoded2.github.io/itai-build-todo-app/"
           target="_blank"
           rel="noopener noreferrer"
           style={styles.link}
         >
-          Online
+          Live Demo
         </a>
       </div>
 
@@ -52,16 +63,18 @@ const ItaiReactApp: React.FC = () => {
           type="text"
           value={input}
           onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
           placeholder="Enter new todo"
           style={styles.input}
+          aria-label="New todo input"
         />
-        <button onClick={addTodo} style={styles.addBtn}>
+        <button onClick={addTodo} style={styles.addBtn} aria-label="Add todo">
           Add
         </button>
       </div>
 
       <ul style={styles.todoList}>
-        {todos.map((todo) => (
+        {todos.map((todo: Todo) => (
           <li
             key={todo.id}
             onClick={() => toggleTodo(todo.id)}
@@ -72,10 +85,7 @@ const ItaiReactApp: React.FC = () => {
           >
             <span>{todo.text}</span>
             <button
-              onClick={(e) => {
-                e.stopPropagation();
-                deleteTodo(todo.id);
-              }}
+              onClick={(e) => handleDeleteTodo(e, todo.id)}
               style={styles.deleteBtn}
               aria-label={`Delete todo ${todo.text}`}
             >

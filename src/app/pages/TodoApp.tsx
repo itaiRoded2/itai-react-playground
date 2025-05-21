@@ -14,8 +14,8 @@ const TodoApp: React.FC = () => {
     <div style={styles.appContainer}>
       <h2 style={styles.heading}>
         Itai TODO App test CI CD works deploying on push Data is saved on
-        refresh in store with Zustand's persist middleware! Cleaner state mgmt,
-        no useEffect and explicit local storage calls
+        refresh in store with Zustands persist middleware Cleaner state mgmt no
+        useEffect and explicit local storage calls
       </h2>
 
       <div style={styles.workflowLinkContainer}>

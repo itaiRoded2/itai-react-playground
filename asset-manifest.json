@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/itai-react-playground-main/ /static/css/main.90e4dafa.css",
-    "main.js": "/itai-react-playground-main/ /static/js/main.6804478a.js",
-    "static/js/488.09611c9b.chunk.js": "/itai-react-playground-main/ /static/js/488.09611c9b.chunk.js",
-    "index.html": "/itai-react-playground-main/ /index.html",
-    "main.90e4dafa.css.map": "/itai-react-playground-main/ /static/css/main.90e4dafa.css.map",
-    "main.6804478a.js.map": "/itai-react-playground-main/ /static/js/main.6804478a.js.map",
-    "488.09611c9b.chunk.js.map": "/itai-react-playground-main/ /static/js/488.09611c9b.chunk.js.map"
+    "main.css": "/itai-react-playground/static/css/main.90e4dafa.css",
+    "main.js": "/itai-react-playground/static/js/main.8fa4f4a5.js",
+    "static/js/488.9d41e284.chunk.js": "/itai-react-playground/static/js/488.9d41e284.chunk.js",
+    "index.html": "/itai-react-playground/index.html",
+    "main.90e4dafa.css.map": "/itai-react-playground/static/css/main.90e4dafa.css.map",
+    "main.8fa4f4a5.js.map": "/itai-react-playground/static/js/main.8fa4f4a5.js.map",
+    "488.9d41e284.chunk.js.map": "/itai-react-playground/static/js/488.9d41e284.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.90e4dafa.css",
-    "static/js/main.6804478a.js"
+    "static/js/main.8fa4f4a5.js"
   ]
 }

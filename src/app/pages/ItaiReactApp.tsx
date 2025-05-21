@@ -37,27 +37,6 @@ const ItaiReactApp: React.FC = () => {
         </h1>
       </div> */}
 
-      <div style={styles.workflowLinkContainer}>
-        <span>Links: </span>
-        <a
-          href="https://github.com/itaiRoded2/itai-react-playground/actions"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={styles.link}
-        >
-          GitHub Actions
-        </a>
-        <span> | </span>
-        <a
-          href="https://itairoded2.github.io/itai-react-playground/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={styles.link}
-        >
-          Live Demo
-        </a>
-      </div>
-
       <div style={styles.inputRow}>
         <input
           type="text"

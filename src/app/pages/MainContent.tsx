@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import styles from "./ItaiReactApp.styles";
 
 const MainContent = () => {
   return (
@@ -10,6 +11,29 @@ const MainContent = () => {
       className="p-6"
     >
       <h1 className="text-2xl font-bold mb-4">Itai full react all areas</h1>
+
+      <div style={styles.workflowLinkContainer}>
+        <span>Links: </span>
+        <a
+          href="https://github.com/itaiRoded2/itai-react-playground/actions"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={styles.link}
+        >
+          GitHub Actions
+        </a>
+        <span> | </span>
+        <a
+          href="https://itairoded2.github.io/itai-react-playground/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={styles.link}
+        >
+          Live Demo
+        </a>
+      </div>
+
+      <br />
 
       <table>
         <thead>

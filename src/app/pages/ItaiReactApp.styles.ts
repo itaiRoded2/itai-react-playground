@@ -33,7 +33,8 @@ const styles: Styles = {
     fontWeight: "600",
   },
   workflowLinkContainer: {
-    display: "flex",
+    float: "left",
+    //display: "flex",
     justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",

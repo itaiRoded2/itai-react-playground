@@ -1,15 +1,32 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 import "./ItaiReactApp.css";
-import { useTodoStore, Todo } from "../../store/useTodoStore"; // ✅ adjust path as needed
+import { useTodoStore, Todo, Priority } from "../../store/useTodoStore"; // ✅ adjust path as needed
 
 import styles from "./ItaiReactApp.styles";
 
 const ItaiReactApp: React.FC = () => {
-  const { todos, input, setInput, addTodo, deleteTodo, toggleTodo } =
-    useTodoStore();
+  const {
+    todos,
+    input,
+    setInput,
+    setPriority,
+    addTodo,
+    deleteTodo,
+    toggleTodo,
+  } = useTodoStore();
+
+  //const [priority, setPriority] = useState<Priority>(Priority.Low);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setInput(e.target.value);
+  };
+
+  const handlePriorityChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    // eslint-disable-next-line no-debugger
+    debugger;
+    const selectedPriority: Priority = e.target.value as Priority;
+    setPriority(selectedPriority);
+    //onPriorityChange(selectedPriority); // pass to parent or store
   };
 
   const handleDeleteTodo = (e: React.MouseEvent, id: number): void => {
@@ -21,6 +38,14 @@ const ItaiReactApp: React.FC = () => {
     if (e.key === "Enter") {
       addTodo();
     }
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    // eslint-disable-next-line no-debugger
+    debugger;
+    //const selectedPriority: Priority = e.target.value as Priority;
+    //setPriority(selectedPriority);
+    handlePriorityChange(e);
   };
 
   return (
@@ -47,6 +72,12 @@ const ItaiReactApp: React.FC = () => {
           style={styles.input}
           aria-label="New todo input"
         />
+        <label htmlFor="priority">Priority:</label>
+        <select id="priority" onChange={handleChange}>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
         <button onClick={addTodo} style={styles.addBtn} aria-label="Add todo">
           Add
         </button>
@@ -63,6 +94,7 @@ const ItaiReactApp: React.FC = () => {
             }}
           >
             <span>{todo.text}</span>
+            <span>{todo.priority}</span>
             <button
               onClick={(e) => handleDeleteTodo(e, todo.id)}
               style={styles.deleteBtn}

@@ -1,4 +1,5 @@
 // src/store/useTodoStore.ts
+import { toast } from "react-toastify";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -38,10 +39,13 @@ export const useTodoStore = create<TodoState>()(
       setPriority: (priorityAsText: string) =>
         set({ priority: priorityAsText as Priority }),
       addTodo: () => {
-        // eslint-disable-next-line no-debugger
-        debugger;
         const { input, todos, priority } = get();
-        if (!input.trim()) return;
+        if (!input.trim()) {
+          //alert("Please enter a text.");
+          toast.error("Please enter a task description.");
+
+          return;
+        }
         if (!priority) return;
 
         const newTodo: Todo = {
@@ -54,6 +58,7 @@ export const useTodoStore = create<TodoState>()(
         set({
           todos: [...todos, newTodo],
           input: "",
+          priority: Priority.Low,
         });
       },
       deleteTodo: (id: number) =>

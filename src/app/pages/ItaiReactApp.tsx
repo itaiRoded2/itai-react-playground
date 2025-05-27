@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent } from "react";
 import "./ItaiReactApp.css";
 import { useTodoStore, Todo, Priority } from "../../store/useTodoStore"; // ✅ adjust path as needed
 
@@ -15,18 +15,8 @@ const ItaiReactApp: React.FC = () => {
     toggleTodo,
   } = useTodoStore();
 
-  //const [priority, setPriority] = useState<Priority>(Priority.Low);
-
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setInput(e.target.value);
-  };
-
-  const handlePriorityChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    // eslint-disable-next-line no-debugger
-    debugger;
-    const selectedPriority: Priority = e.target.value as Priority;
-    setPriority(selectedPriority);
-    //onPriorityChange(selectedPriority); // pass to parent or store
   };
 
   const handleDeleteTodo = (e: React.MouseEvent, id: number): void => {
@@ -40,12 +30,9 @@ const ItaiReactApp: React.FC = () => {
     }
   };
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    // eslint-disable-next-line no-debugger
-    debugger;
-    //const selectedPriority: Priority = e.target.value as Priority;
-    //setPriority(selectedPriority);
-    handlePriorityChange(e);
+  const handlePriorityChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const selectedPriority: Priority = e.target.value as Priority;
+    setPriority(selectedPriority);
   };
 
   return (
@@ -55,12 +42,6 @@ const ItaiReactApp: React.FC = () => {
         refresh in store with Zustands persist middleware Cleaner state mgmt no
         useEffect and explicit local storage calls
       </h2>
-
-      {/* <div className="min-h-screen flex items-center justify-center bg-blue-100">
-        <h1 className="text-4xl font-bold text-blue-700">
-          Tailwind is working! 🚀
-        </h1>
-      </div> */}
 
       <div style={styles.inputRow}>
         <input
@@ -72,8 +53,18 @@ const ItaiReactApp: React.FC = () => {
           style={styles.input}
           aria-label="New todo input"
         />
-        <label htmlFor="priority">Priority:</label>
-        <select id="priority" onChange={handleChange}>
+        <label
+          htmlFor="priority"
+          className="text-gray-800 font-semibold text-lg tracking-wide mr-1"
+        >
+          Priority:
+        </label>
+
+        <select
+          id="priority"
+          onChange={handlePriorityChange}
+          className="px-3 py-2 border border-gray-300 rounded-md bg-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
           <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="high">High</option>

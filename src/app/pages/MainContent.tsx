@@ -107,7 +107,7 @@ const MainContent = () => {
           rel="noopener noreferrer"
           style={styles.link}
         >
-          Live Demo
+          See this deployed App online (using gitgub actions pipline)
         </a>
       </div>
 

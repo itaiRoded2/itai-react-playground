@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/itai-react-playground/static/css/main.39926654.css",
-    "main.js": "/itai-react-playground/static/js/main.1e965ad0.js",
+    "main.js": "/itai-react-playground/static/js/main.226c979e.js",
     "static/js/488.9d41e284.chunk.js": "/itai-react-playground/static/js/488.9d41e284.chunk.js",
     "index.html": "/itai-react-playground/index.html",
     "main.39926654.css.map": "/itai-react-playground/static/css/main.39926654.css.map",
-    "main.1e965ad0.js.map": "/itai-react-playground/static/js/main.1e965ad0.js.map",
+    "main.226c979e.js.map": "/itai-react-playground/static/js/main.226c979e.js.map",
     "488.9d41e284.chunk.js.map": "/itai-react-playground/static/js/488.9d41e284.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.39926654.css",
-    "static/js/main.1e965ad0.js"
+    "static/js/main.226c979e.js"
   ]
 }

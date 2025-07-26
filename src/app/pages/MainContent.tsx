@@ -88,7 +88,9 @@ const MainContent = () => {
       transition={{ duration: 0.5 }}
       className="p-6"
     >
-      <h1 className="text-2xl font-bold mb-4">Itai full react all areas</h1>
+      <h1 className="text-2xl font-bold mb-4">
+        Itai Roded full react all areas
+      </h1>
 
       <div style={styles.workflowLinkContainer}>
         <span>Links: </span>

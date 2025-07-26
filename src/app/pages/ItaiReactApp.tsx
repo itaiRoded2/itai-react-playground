@@ -48,7 +48,7 @@ const ItaiReactApp: React.FC = () => {
           type="text"
           value={input}
           onChange={handleInputChange}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
           placeholder="Enter new todo"
           style={styles.input}
           aria-label="New todo input"
@@ -56,6 +56,7 @@ const ItaiReactApp: React.FC = () => {
         <label
           htmlFor="priority"
           className="text-gray-800 font-semibold text-lg tracking-wide mr-1"
+          style={{ alignContent: "center" }}
         >
           Priority:
         </label>

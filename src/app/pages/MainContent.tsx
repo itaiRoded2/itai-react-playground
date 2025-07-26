@@ -1,6 +1,84 @@
 import { motion } from "framer-motion";
 import styles from "./ItaiReactApp.styles";
 
+const tableStyle: React.CSSProperties = {
+  width: "100%",
+  borderCollapse: "separate",
+  borderSpacing: 0,
+  marginTop: "1rem",
+  background: "#fff",
+  borderRadius: "14px",
+  overflow: "hidden",
+  boxShadow: "0 4px 24px 0 rgba(0,0,0,0.10)",
+  fontSize: "1.05rem",
+  letterSpacing: "0.01em",
+};
+
+const thStyle: React.CSSProperties = {
+  background: "linear-gradient(90deg, #f3f4f6 0%, #e0e7ff 100%)",
+  color: "#222",
+  fontWeight: 700,
+  padding: "16px 20px",
+  borderBottom: "2px solid #e5e7eb",
+  textAlign: "left",
+  fontSize: "1.1rem",
+  letterSpacing: "0.02em",
+  position: "sticky",
+  top: 0,
+  zIndex: 1,
+};
+
+const tdStyle: React.CSSProperties = {
+  padding: "14px 20px",
+  borderBottom: "1px solid #f1f5f9",
+  verticalAlign: "top",
+  background: "inherit",
+  transition: "background 0.2s, box-shadow 0.2s, transform 0.2s",
+};
+
+const trEvenStyle: React.CSSProperties = {
+  background: "#f8fafc",
+};
+
+const trOddStyle: React.CSSProperties = {
+  background: "#fff",
+};
+
+const trHoverStyle: React.CSSProperties = {
+  background: "#e0e7ff",
+  boxShadow: "0 2px 8px 0 rgba(99,102,241,0.08)",
+  transform: "scale(1.01)",
+  zIndex: 2,
+  position: "relative",
+};
+
+const tableData = [
+  [
+    "🏗️ Architecture",
+    "Modular folder structure, container/presentational split, dependency injection",
+  ],
+  ["⚛️ React", "Hooks, Context API, Portals, Suspense, lazy, memoization"],
+  ["🪝 State Management", "useReducer, Context, Zustand, Redux Toolkit (RTK)"],
+  [
+    "🧪 Testing",
+    "Unit (Jest, React Testing Library), E2E (Cypress or Playwright)",
+  ],
+  ["💅 Styling", "Tailwind CSS, CSS Modules, Styled Components"],
+  ["🔄 Data Fetching", "REST, GraphQL, SWR, React Query"],
+  ["📦 Backend Integration", "Node.js + Express API or Firebase/Supabase"],
+  ["🔐 Authentication", "JWT, OAuth, Firebase Auth, role-based access"],
+  ["🧭 Routing", "React Router v6, Protected routes, Nested routes"],
+  ["⚙️ Forms", "react-hook-form, validation (Yup/Zod)"],
+  [
+    "📂 File Management",
+    "File uploads, drag-drop (e.g. tasks/files), CDN (Cloudinary)",
+  ],
+  ["🧰 Dev Tools", "Vite, ESLint, Prettier, Husky, Git hooks"],
+  ["⚡ Performance", "memo, useCallback, virtualization, lazy loading"],
+  ["🔍 Accessibility", "ARIA, keyboard nav, semantic HTML"],
+  ["🚀 DevOps", "GitHub Actions, Netlify/Vercel deployment, Docker"],
+];
+
 const MainContent = () => {
   return (
     <motion.div
@@ -35,81 +113,51 @@ const MainContent = () => {
 
       <br />
 
-      <table>
+      <table style={tableStyle}>
         <thead>
           <tr>
-            <th>Area</th>
-            <th>Topics</th>
+            <th style={thStyle}>Area</th>
+            <th style={thStyle}>Topics</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>🏗️ Architecture</td>
-            <td>
-              Modular folder structure, container/presentational split,
-              dependency injection
-            </td>
-          </tr>
-          <tr>
-            <td>⚛️ React</td>
-            <td>Hooks, Context API, Portals, Suspense, lazy, memoization</td>
-          </tr>
-          <tr>
-            <td>🪝 State Management</td>
-            <td>useReducer, Context, Zustand, Redux Toolkit (RTK)</td>
-          </tr>
-          <tr>
-            <td>🧪 Testing</td>
-            <td>
-              Unit (Jest, React Testing Library), E2E (Cypress or Playwright)
-            </td>
-          </tr>
-          <tr>
-            <td>💅 Styling</td>
-            <td>Tailwind CSS, CSS Modules, Styled Components</td>
-          </tr>
-          <tr>
-            <td>🔄 Data Fetching</td>
-            <td>REST, GraphQL, SWR, React Query</td>
-          </tr>
-          <tr>
-            <td>📦 Backend Integration</td>
-            <td>Node.js + Express API or Firebase/Supabase</td>
-          </tr>
-          <tr>
-            <td>🔐 Authentication</td>
-            <td>JWT, OAuth, Firebase Auth, role-based access</td>
-          </tr>
-          <tr>
-            <td>🧭 Routing</td>
-            <td>React Router v6, Protected routes, Nested routes</td>
-          </tr>
-          <tr>
-            <td>⚙️ Forms</td>
-            <td>react-hook-form, validation (Yup/Zod)</td>
-          </tr>
-          <tr>
-            <td>📂 File Management</td>
-            <td>
-              File uploads, drag-drop (e.g. tasks/files), CDN (Cloudinary)
-            </td>
-          </tr>
-          <tr>
-            <td>🧰 Dev Tools</td>
-            <td>Vite, ESLint, Prettier, Husky, Git hooks</td>
-          </tr>
-          <tr>
-            <td>⚡ Performance</td>
-            <td>memo, useCallback, virtualization, lazy loading</td>
-          </tr>
-          <tr>
-            <td>🔍 Accessibility</td>
-            <td>ARIA, keyboard nav, semantic HTML</td>
-          </tr>
-          <tr>
-            <td>🚀 DevOps</td>
-            <td>GitHub Actions, Netlify/Vercel deployment, Docker</td>
-          </tr>
+          {tableData.map(([area, topics], i) => {
+            // Zebra striping
+            const baseStyle = i % 2 === 0 ? trEvenStyle : trOddStyle;
+            return (
+              <tr
+                key={area}
+                style={baseStyle}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = String(
+                    trHoverStyle.background
+                  );
+                  e.currentTarget.style.boxShadow = String(
+                    trHoverStyle.boxShadow
+                  );
+                  e.currentTarget.style.transform = String(
+                    trHoverStyle.transform
+                  );
+                  e.currentTarget.style.zIndex = String(trHoverStyle.zIndex);
+                  e.currentTarget.style.position = String(
+                    trHoverStyle.position
+                  );
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = String(
+                    baseStyle.background
+                  );
+                  e.currentTarget.style.boxShadow = "none";
+                  e.currentTarget.style.transform = "none";
+                  e.currentTarget.style.zIndex = "auto";
+                  e.currentTarget.style.position = "static";
+                }}
+              >
+                <td style={tdStyle}>{area}</td>
+                <td style={tdStyle}>{topics}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </motion.div>

@@ -10,7 +10,8 @@ const App: React.FC = () => {
     <div className="flex min-h-screen bg-gray-100">
       <Sidebar />
       <ToastContainer />
-      <main className="flex-1 p-6">
+      {/* <main className="flex-1 p-6"> */}
+      <main className="flex-1">
         <Suspense fallback={<div className="p-6">Loading content...</div>}>
           <AppRoutes />
         </Suspense>

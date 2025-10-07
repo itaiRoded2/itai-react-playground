@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && node scripts/copy-angular-files.js",
+    "build": "react-scripts build && node scripts/copy-angular-files.js && node scripts/fix-angular-paths.js",
     "build:prod": "set PUBLIC_URL=/itai-react-playground/ && react-scripts build",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx} --fix",
     "test": "react-scripts test",

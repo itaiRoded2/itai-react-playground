@@ -24,7 +24,7 @@ const AngularInReact: React.FC = () => {
         }}
         title="Angular Application"
         onError={(e) => {
-          console.error("Failed to load Angular iframe:", iframeSrc);
+          console.error("Failed to load Angular iframe:" + e, iframeSrc);
         }}
       />
     </div>

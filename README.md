@@ -8,6 +8,7 @@ http://localhost:3000
 http://localhost:3000/itai-react-playground
 
 TO DEPLOY we use  Deploy React App to GitHub Pages
+https://github.com/itaiRoded2/itai-react-playground
 
 # Getting Started with Create React App
 

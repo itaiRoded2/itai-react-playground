@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": "./src",
+    "paths": {
+      "app/*": ["app/*"]
+    },
     "checkJs": true,
     "jsx": "react-jsx",
     "target": "es5",

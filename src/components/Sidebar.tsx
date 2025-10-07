@@ -36,7 +36,7 @@ const Sidebar: React.FC = () => {
           <NavItem to="/todos">Todo App</NavItem>
           <NavItem to="/tasks">Tasks</NavItem>
           <NavItem to="/Askdocs">Ask docs AI</NavItem>
-          <NavItem to="/future2">Future2 App</NavItem>
+          <NavItem to="/AngularInreact">Angular In react</NavItem>
           <NavItem to="/future3">Future3 App</NavItem>
           <NavItem to="/future4">Future4 App</NavItem>
           <NavItem to="/future5">Future5 App</NavItem>

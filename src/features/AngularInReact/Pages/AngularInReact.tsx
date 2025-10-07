@@ -23,7 +23,7 @@ const AngularInReact: React.FC = () => {
           backgroundColor: "white"
         }}
         title="Angular Application"
-        onError={(e) => {
+        onError={() => {
           console.error("Failed to load Angular iframe:", iframeSrc);
         }}
       />

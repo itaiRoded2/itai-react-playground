@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Send,
   User,
@@ -28,7 +28,7 @@ const AskDocsHome = () => {
   const [activeTab, setActiveTab] = useState("chat");
 
   // Simulate AI responses
-  const simulateAIResponse = (userMessage) => {
+  const simulateAIResponse = (userMessage: string) => {
     const responses = [
       "I can help you build React components, write SQL queries, or explain complex algorithms. What would you like to work on?",
       "Here's a code snippet that might help with your project. Let me know if you need any modifications!",
@@ -42,14 +42,15 @@ const AskDocsHome = () => {
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
 
-    const userMessage = {
+    const newUserMessage = {
       id: messages.length + 1,
       type: "user",
       content: inputMessage,
       timestamp: new Date().toLocaleTimeString(),
     };
 
-    setMessages((prev) => [...prev, userMessage]);
+    setMessages((prev) => [...prev, newUserMessage]);
+    const messageToProcess = inputMessage;
     setInputMessage("");
     setIsTyping(true);
 
@@ -58,7 +59,7 @@ const AskDocsHome = () => {
       const botMessage = {
         id: messages.length + 2,
         type: "bot",
-        content: simulateAIResponse(inputMessage),
+        content: simulateAIResponse(messageToProcess),
         timestamp: new Date().toLocaleTimeString(),
       };
       setMessages((prev) => [...prev, botMessage]);
@@ -66,7 +67,7 @@ const AskDocsHome = () => {
     }, 1500);
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
@@ -149,11 +150,10 @@ const AskDocsHome = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                activeTab === tab
+              className={`px-6 py-3 rounded-lg font-medium transition-all ${activeTab === tab
                   ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
                   : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50"
-              }`}
+                }`}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1).replace("-", " ")}
             </button>
@@ -177,25 +177,22 @@ const AskDocsHome = () => {
                   {messages.map((message) => (
                     <div
                       key={message.id}
-                      className={`flex ${
-                        message.type === "user"
+                      className={`flex ${message.type === "user"
                           ? "justify-end"
                           : "justify-start"
-                      }`}
+                        }`}
                     >
                       <div
-                        className={`flex items-start space-x-3 max-w-xs lg:max-w-md ${
-                          message.type === "user"
+                        className={`flex items-start space-x-3 max-w-xs lg:max-w-md ${message.type === "user"
                             ? "flex-row-reverse space-x-reverse"
                             : ""
-                        }`}
+                          }`}
                       >
                         <div
-                          className={`p-2 rounded-full ${
-                            message.type === "user"
+                          className={`p-2 rounded-full ${message.type === "user"
                               ? "bg-gradient-to-r from-blue-500 to-purple-600"
                               : "bg-slate-700"
-                          }`}
+                            }`}
                         >
                           {message.type === "user" ? (
                             <User className="w-4 h-4 text-white" />
@@ -205,11 +202,10 @@ const AskDocsHome = () => {
                         </div>
                         <div>
                           <div
-                            className={`p-3 rounded-lg ${
-                              message.type === "user"
+                            className={`p-3 rounded-lg ${message.type === "user"
                                 ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white"
                                 : "bg-slate-700 text-slate-100"
-                            }`}
+                              }`}
                           >
                             <p className="text-sm">{message.content}</p>
                           </div>

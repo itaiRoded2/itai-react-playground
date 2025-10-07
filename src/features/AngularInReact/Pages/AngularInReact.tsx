@@ -1,11 +1,11 @@
 import React from "react";
 
 const AngularInReact: React.FC = () => {
-  // Detect if running on GitHub Pages or localhost
+  // Detect environment for iframe src
   const isProduction = process.env.NODE_ENV === "production";
-  const basePath = isProduction ? "/itai-react-playground" : "";
-
-  const iframeSrc = `${basePath}/angular-wrapper.html`;
+  const iframeSrc = isProduction
+    ? "/itai-react-playground/angular-wrapper.html"
+    : "/angular-wrapper.html";
 
   return (
     <div style={{ padding: "24px", width: "100%", height: "100vh", display: "flex", flexDirection: "column" }}>
@@ -23,7 +23,7 @@ const AngularInReact: React.FC = () => {
           backgroundColor: "white"
         }}
         title="Angular Application"
-        onError={() => {
+        onError={(e) => {
           console.error("Failed to load Angular iframe:", iframeSrc);
         }}
       />

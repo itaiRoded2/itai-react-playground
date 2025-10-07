@@ -5,15 +5,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Angular App</title>
-  <base href="/" />
+  <base href="/itai-react-playground/" />
 
   <script>
-    window.APP_BASE_HREF = '/js/ForEmbedAngular/';
-    window.APP_ASSETS_BASE = '/js/ForEmbedAngular/';
-    window.__webpack_public_path__ = '/js/ForEmbedAngular/';
+    // Detect environment and set correct base path
+    var isGitHubPages = window.location.hostname === 'itairoded2.github.io';
+    var basePath = isGitHubPages
+      ? '/itai-react-playground/js/ForEmbedAngular/'
+      : '/js/ForEmbedAngular/';
+
+    window.APP_BASE_HREF = basePath;
+    window.APP_ASSETS_BASE = basePath;
+    window.__webpack_public_path__ = basePath;
   </script>
 
-  <link rel="stylesheet" href="/js/ForEmbedAngular/styles.6f0cf44faa044024.css" />
+  <script>
+    // Dynamically load styles with correct path
+    var isGitHubPages = window.location.hostname === 'itairoded2.github.io';
+    var basePath = isGitHubPages
+      ? '/itai-react-playground/js/ForEmbedAngular/'
+      : '/js/ForEmbedAngular/';
+
+    document.write('<link rel="stylesheet" href="' + basePath + 'styles.6f0cf44faa044024.css" />');
+  </script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
   <style>
@@ -27,7 +41,21 @@
 
 <body>
   <app-root></app-root>
-  <script src="/js/ForEmbedAngular/main.23dcd94834071479.js"></script>
+
+  <script>
+    // Dynamically load main script with correct path
+    var isGitHubPages = window.location.hostname === 'itairoded2.github.io';
+    var basePath = isGitHubPages
+      ? '/itai-react-playground/js/ForEmbedAngular/'
+      : '/js/ForEmbedAngular/';
+
+    var script = document.createElement('script');
+    script.src = basePath + 'main.23dcd94834071479.js';
+    script.onerror = function () {
+      console.error('Failed to load Angular at:', script.src);
+    };
+    document.body.appendChild(script);
+  </script>
 </body>
 
 </html>

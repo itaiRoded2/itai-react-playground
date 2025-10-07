@@ -7,6 +7,8 @@ http://localhost:3000
 
 http://localhost:3000/itai-react-playground
 
+TO DEPLOY we use  Deploy React App to GitHub Pages
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

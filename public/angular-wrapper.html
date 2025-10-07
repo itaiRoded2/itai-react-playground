@@ -9,15 +9,25 @@
   <base href="/" />
 
   <script>
-    // Detect environment and set correct base path
+    // CRITICAL: Set webpack public path FIRST, before any other scripts
+    // This must be set before Angular's main.js loads
     var isGitHubPages = window.location.hostname === 'itairoded2.github.io';
     var basePath = isGitHubPages
       ? '/itai-react-playground/js/ForEmbedAngular/'
       : '/js/ForEmbedAngular/';
 
+    // Set all path variables
     window.APP_BASE_HREF = basePath;
     window.APP_ASSETS_BASE = basePath;
+
+    // CRITICAL: This tells webpack where to load chunks from
+    // Must use __webpack_public_path__ (double underscore on both sides)
     window.__webpack_public_path__ = basePath;
+
+    // Also try setting it on the global scope
+    var __webpack_public_path__ = basePath;
+
+    console.log('🔧 Set webpack public path to:', basePath);
   </script>
 
   <script>
@@ -50,10 +60,15 @@
       ? '/itai-react-playground/js/ForEmbedAngular/'
       : '/js/ForEmbedAngular/';
 
+    // IMPORTANT: Create script element with full path
     var script = document.createElement('script');
     script.src = basePath + 'main.23dcd94834071479.js';
     script.onerror = function () {
-      console.error('Failed to load Angular at:', script.src);
+      console.error('❌ Failed to load Angular at:', script.src);
+    };
+    script.onload = function () {
+      console.log('✅ Angular main.js loaded successfully');
+      console.log('📦 Webpack public path is:', window.__webpack_public_path__);
     };
     document.body.appendChild(script);
   </script>

@@ -34,7 +34,7 @@ const AskDocsHome = () => {
       "Here's a code snippet that might help with your project. Let me know if you need any modifications!",
       "I've analyzed your request. Would you like me to generate some sample code or provide architectural recommendations?",
       "Great question! I can create database schemas, API endpoints, or frontend components based on your needs.",
-      "I'm processing your request using advanced AI algorithms. Here's what I recommend for your fullstack application...",
+      "I'm processing your request using advanced AI algorithms. Here's what I recommend for your fullstack application..." + userMessage,
     ];
     return responses[Math.floor(Math.random() * responses.length)];
   };
@@ -151,8 +151,8 @@ const AskDocsHome = () => {
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-6 py-3 rounded-lg font-medium transition-all ${activeTab === tab
-                  ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                  : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50"
+                ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
+                : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50"
                 }`}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1).replace("-", " ")}
@@ -178,20 +178,20 @@ const AskDocsHome = () => {
                     <div
                       key={message.id}
                       className={`flex ${message.type === "user"
-                          ? "justify-end"
-                          : "justify-start"
+                        ? "justify-end"
+                        : "justify-start"
                         }`}
                     >
                       <div
                         className={`flex items-start space-x-3 max-w-xs lg:max-w-md ${message.type === "user"
-                            ? "flex-row-reverse space-x-reverse"
-                            : ""
+                          ? "flex-row-reverse space-x-reverse"
+                          : ""
                           }`}
                       >
                         <div
                           className={`p-2 rounded-full ${message.type === "user"
-                              ? "bg-gradient-to-r from-blue-500 to-purple-600"
-                              : "bg-slate-700"
+                            ? "bg-gradient-to-r from-blue-500 to-purple-600"
+                            : "bg-slate-700"
                             }`}
                         >
                           {message.type === "user" ? (
@@ -203,8 +203,8 @@ const AskDocsHome = () => {
                         <div>
                           <div
                             className={`p-3 rounded-lg ${message.type === "user"
-                                ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white"
-                                : "bg-slate-700 text-slate-100"
+                              ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white"
+                              : "bg-slate-700 text-slate-100"
                               }`}
                           >
                             <p className="text-sm">{message.content}</p>

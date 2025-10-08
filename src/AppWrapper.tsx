@@ -3,8 +3,8 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
 const AppWrapper: React.FC = () => {
-  const basename =
-    process.env.NODE_ENV === "production" ? "/itai-react-playground" : "/";
+  // Use same basename for both local and production
+  const basename = "/itai-react-playground";
 
   return (
     <BrowserRouter basename={basename}>

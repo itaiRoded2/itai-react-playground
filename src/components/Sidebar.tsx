@@ -37,10 +37,10 @@ const Sidebar: React.FC = () => {
           <NavItem to="/tasks">Tasks</NavItem>
           <NavItem to="/Askdocs">Ask docs AI</NavItem>
           <NavItem to="/AngularInreact">Angular In react</NavItem>
-          <NavItem to="/future3">Future3 App</NavItem>
+          {/* <NavItem to="/future3">Future3 App</NavItem>
           <NavItem to="/future4">Future4 App</NavItem>
           <NavItem to="/future5">Future5 App</NavItem>
-          <NavItem to="/future6">Future6 App</NavItem>
+          <NavItem to="/future6">Future6 App</NavItem> */}
         </ul>
       </nav>
     </aside>

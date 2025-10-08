@@ -27,7 +27,7 @@ const NavItem: React.FC<NavItemProps> = ({ to, children, end }) => (
 const Sidebar: React.FC = () => {
   return (
     <aside className="w-64 bg-blue-600 text-white p-6 min-h-screen">
-      <h2 className="text-xl font-semibold mb-6">My App</h2>
+      <h2 className="text-xl font-semibold mb-6">Itai React play</h2>
       <nav>
         <ul className="space-y-3">
           <NavItem to="/" end>
